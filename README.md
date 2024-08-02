@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# wmn
 
-## Getting Started
+# Initialization
 
-First, run the development server:
+This project has been initialized with `npx create-next-app@latest`.
+
+# Configuration
+
+1. Install [nvm](https://github.com/nvm-sh/nvm) if you don't have it.
+
+2. Ensure you're using the node version used in production. From the root directory of the repo, execute the following command:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. The project is configured to run only with the package manager [yarn](https://yarnpkg.com/getting-started/install).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+yarn
+```
 
-## Learn More
+5. This project uses [Tailwind CSS](https://tailwindcss.com/docs/installation) in combination with some plugins [ESLint](https://github.com/francoismassart/eslint-plugin-tailwindcss/issues) and [Prettier](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for formatting.
 
-To learn more about Next.js, take a look at the following resources:
+   > 👋 VSCode/ESLint does not pick newly installed packages in the node_modules directory. After installing the packages for the first time, restart the VSCode workspace.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+6. Run the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+yarn dev
+```
 
-## Deploy on Vercel
+7. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# CI
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Commit rules:  
+   • This repo uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#why-use-conventional-commits) standard  
+   • and [commitlint](https://github.com/conventional-changelog/commitlint#benefits-using-commitlint) executed in a husky hook to check them
+
+```bash
+# wrong example
+git commit -m "add commitlint"
+⏳   input: add commitlint
+❌   subject may not be empty [subject-empty]
+❌   type may not be empty [type-empty]
+❌   found 2 problems, 0 warnings
+ℹ️   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
+husky - commit-msg hook exited with code 1 (error)
+# good example
+git commit -m "ci: add commitlint"
+```
+
+# Supabase
+
+Before running theses command, start by link your local client to the project.
+
+```bash
+yarn supabase login
+yarn supabase link
+```
+
+Generate types for the project to produce the types/supabase.ts file.
+
+```bash
+yarn typegen
+```
