@@ -10,12 +10,18 @@
     "lint": "next lint && prettier --check .",
     "typecheck": "tsc --noEmit",
     "format": "npx prettier --write . && next lint --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "shadcn": "npx shadcn-ui@latest"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.424.0",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
